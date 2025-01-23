@@ -1,4 +1,4 @@
-module nft_coupon_v2::cryptomilan {
+module nft_coupon_v2::crypto_milan {
     use std::string::{Self, String};
     use std::signer;
     use aptos_framework::event;
@@ -54,9 +54,8 @@ module nft_coupon_v2::cryptomilan {
     ) {
         let name_utf8 =  *string::bytes(&name);
         
-        let constructor_ref = object::create_named_object(
-            creator,
-             name_utf8,
+        let constructor_ref = object::create_object(
+            signer::address_of(creator),
         );
 
         let token = CouponToken {
@@ -107,8 +106,8 @@ module nft_coupon_v2::cryptomilan {
         });
     }
 
-    #[lint::allow_unsafe_randomness]
-    public entry fun redeem_token(
+    #[randomness]
+     entry fun redeem_token(
         user: &signer,
         token: Object<CouponToken>
     ) acquires CouponToken {
@@ -144,6 +143,13 @@ module nft_coupon_v2::cryptomilan {
             token_address,
             coupon_type: random_number
         });
+    }
+#[lint::allow_unsafe_randomness]
+    fun redeem_token_wrapper(
+        user: &signer,
+        token: Object<CouponToken>
+    ) acquires CouponToken {
+        redeem_token(user, token)
     }
 
     #[view]

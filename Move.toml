@@ -7,7 +7,7 @@ license = "Apache 2.0"
 
 [addresses]
 cryptomilan = "0xae0756888db2163cd9621ac8a6f271a7a19b9f0b63ddbd69794c3b1016297881"
-nft_coupon_v2 = "0x267c8f772b21603d8dc1c74d46f5b937fd9ec6f74ba4ef674d53aebf1c0fa059"
+nft_coupon_v2 = "0x69ddb3bf9c0861e73a4a8f57520423611ed65b8e6f151358bfae27f865351d9d"
 nft_coupon_v3="0x0167bbd306ac7b642caa33afba08778fb2690327ab7533f84c388b4657e99a73"
 
 
